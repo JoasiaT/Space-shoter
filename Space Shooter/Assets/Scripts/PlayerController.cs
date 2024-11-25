@@ -10,6 +10,8 @@ public class PlayerController : MonoBehaviour
 
     public GameObject bulletPrefab;
     public Transform gunEndPosition;
+    public float fireRate = 0.1f;
+    private float timeSinceLastAction = 0f;
 
     // Start is called before the first frame update
     void Start()
@@ -29,8 +31,8 @@ public class PlayerController : MonoBehaviour
     void PlayerMovement()
     {
         float horizontalInputValue = Input.GetAxis("Horizontal");
-        Vector2 mevementVector = new Vector2(horizontalInputValue, 0) * moveSpeed * Time.deltaTime;
-        transform.Translate(mevementVector);
+        Vector2 movomentVector = new Vector2(horizontalInputValue, 0) * moveSpeed * Time.deltaTime;
+        transform.Translate(movomentVector);
         if (transform.position.x > maxXValue.position.x)
         {
             transform.position = new Vector2(maxXValue.position.x, transform.position.y);
@@ -43,6 +45,11 @@ public class PlayerController : MonoBehaviour
     }
     void Shoot()
     {
-        Instantiate(bulletPrefab, gunEndPosition.position, Quaternion.identity);
+        timeSinceLastAction += Time.deltaTime;
+        if (timeSinceLastAction >= fireRate)
+        {
+            Instantiate(bulletPrefab, gunEndPosition.position, Quaternion.identity);
+            timeSinceLastAction = 0;
+        }
     }
 }

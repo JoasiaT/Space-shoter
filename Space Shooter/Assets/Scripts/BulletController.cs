@@ -6,6 +6,8 @@ public class BulletController : MonoBehaviour
 {
     public float moveSpeed = 3f;
     public Rigidbody2D rb;
+    public float destroyYValue = 5f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -16,6 +18,20 @@ public class BulletController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        DestroyAfterLeftScreen();
+    }
+
+    void DestroyAfterLeftScreen()
+    {
+        if (transform.position.y > destroyYValue)
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        Destroy(gameObject);
     }
 }
+
