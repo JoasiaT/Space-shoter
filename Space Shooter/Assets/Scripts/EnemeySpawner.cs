@@ -9,9 +9,9 @@ public class EnemeySpawner : MonoBehaviour
     public float minXAxisSpawnValue = -5f;
     public float maxXAxisSpawnValue = 5f;
     public float yAxisSpawnValue = 4f;
-    private float timeSinceLastAction = 0f;
+   
     public List<GameObject> spawnedEnemies = new List<GameObject>();
-    
+    private float timeSinceLastAction = 0f;
 
     // Start is called before the first frame update
     void Start()
