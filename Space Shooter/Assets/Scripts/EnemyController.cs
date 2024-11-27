@@ -23,8 +23,17 @@ public class EnemyController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(Vector2.down * speed * Time.deltaTime);
-        Shoot();
+       transform.Translate(Vector2.down * speed * Time.deltaTime);
+        if (transform.position.y > -2f)
+        {
+            Shoot();
+        }
+
+        if (transform.position.y < -5.5f)
+        {
+            GameManager.pleyerController.HittedByBullet();
+            Destroy(gameObject);
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

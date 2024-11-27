@@ -565,7 +565,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyPrefab: {fileID: 8574769529167392460, guid: 9b6fdf33dc9d08040bd5dcae891d3b7a, type: 3}
   spawnRate: 2
-  minXAxisSpawnValue: -5
+  minXAxisSpawnValue: -3
   maxXAxisSpawnValue: 5
   yAxisSpawnValue: 4
   spawnedEnemies: []

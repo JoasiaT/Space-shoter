@@ -14,7 +14,7 @@ public class EnemyBullet : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         playerTransform = GameObject.Find("Player").GetComponent<Transform>();
-        rb.velocity = (playerTransform.position - transform.position).normalized * speed * Time.deltaTime;
+        rb.velocity = (playerTransform.position - transform.position).normalized * speed;
         //transform.Translate((playerTransform.position - transform.position).normalized * speed * Time.deltaTime);
     }
 
@@ -36,7 +36,11 @@ public class EnemyBullet : MonoBehaviour
             GameManager.pleyerController.HittedByBullet();
              
         }
-        Destroy(gameObject);
+
+        if (collision.gameObject.tag == "Bullet")
+        {
+            Destroy(gameObject);
+        }
     }
 
 }
