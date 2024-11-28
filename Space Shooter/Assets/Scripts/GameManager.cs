@@ -6,5 +6,5 @@ using static UnityEngine.RuleTile.TilingRuleOutput;
 public static class GameManager
 {
     public static PlayerController pleyerController;
-   
+    public static EndGameScreen endGameScreen;
 }

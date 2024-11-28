@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public int hp = 3; 
+    public int hp = 3;
     public float moveSpeed = 2f;
     public Transform minXValue;
     public Transform maxXValue;
@@ -13,11 +13,13 @@ public class PlayerController : MonoBehaviour
     public Transform gunEndPosition;
     public float fireRate = 0.1f;
     private float timeSinceLastAction = 0f;
+   //private EndGameScreen endGameScreen;
 
     // Start is called before the first frame update
     void Start()
     {
         GameManager.pleyerController = this;
+        //endGameScreen = new EndGameScreen();
     }
 
     // Update is called once per frame
@@ -29,7 +31,10 @@ public class PlayerController : MonoBehaviour
             Shoot();
         }
         if (hp <= 0)
+        {
             Debug.Log("Player is death");
+           // endGameScreen;
+        }
     }
     void PlayerMovement()
     {
@@ -60,4 +65,9 @@ public class PlayerController : MonoBehaviour
     {
         hp--;
     }
+
+  
+    //public void //DOPISAÆ KOD NA CHEETY I JE UNIEMO¯LIWIÆ!!!!!! 
+       // {}
+    
 }

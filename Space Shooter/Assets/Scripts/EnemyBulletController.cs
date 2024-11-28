@@ -34,7 +34,7 @@ public class EnemyBullet : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             GameManager.pleyerController.HittedByBullet();
-             
+            Destroy(gameObject);
         }
 
         if (collision.gameObject.tag == "Bullet")
