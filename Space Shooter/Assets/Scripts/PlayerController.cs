@@ -64,6 +64,7 @@ public class PlayerController : MonoBehaviour
     public void HittedByBullet()
     {
         hp--;
+        Debug.Log("Hit");
     }
 
   
